@@ -10,7 +10,7 @@ Abhängigkeiten zwischen den Images zu kümmern.
 Um das Projekt lokal auszuprobieren, muss zunächst dieses Repository
 auf den lokalen Rechner geklont und die beiden Tools [VirtualBox][virtualbox] und
 [Vagrant][vagrant] installiert werden. Anschließend muss in das Verzeichnis gewechselt
-werden, wo Die Datei *Vagrantfile* liegt. In diesem Verzeichnis führt man anschließend folgenden Befehl aus:
+werden, wo die Datei *Vagrantfile* liegt. In diesem Verzeichnis führt man anschließend folgenden Befehl aus:
 
 > `vagrant up`
 
@@ -27,8 +27,7 @@ Sobald die virtuelle Machine erstellt wurde kann man sich mit
 > `vagrant ssh`
 
 in der virtuellen Maschine anmelden und das Bauen der Docker Images
-beginnen. Hierfür benutzen wir das Tool *RED*. Dies ist die Abkürzung für
-*Runtime Environment for Development*. RED ist ein Python Programn und von der
+beginnen. Hierfür benutzen wir das Tool *plumb*. Plumb ist ein Python Programn und von der
 Struktur her ähnlich aufgebaut wie [Fig][fig]. Es gibt eine Konfigurationsdatei `services/config.yml`
  in der alle Services/Images definiert werden. In unserem
 Fall ist eine Servicekonfiguration sehr einfach gehalten. Eine Servicebeschreibung besteht aus
@@ -53,7 +52,7 @@ In unserem Beispielprojekt haben wir die folgenden Services definiert:
 
 Die Abhängigkeiten sind in den jeweiligen Dockerfiles definiert. Wenn nun der Befehl
 
-> `RED`
+> `plumb`
 
 ausgeführt wird, wird zunächst die Datei *config.yml* ausgelesen. Anschließend werden
 die Abhängigkeiten der Services untereinander aufgelöst und letztendlich alle
@@ -79,7 +78,7 @@ Dockerfiles der beiden Services muss die neue `JDK_URL` bzw. die `ES_URL` aktivi
 und die alten URLs auskommentiert werden. Wenn nun der folgende Befehl
 ausgeführt wird
 
-> `RED jdk`
+> `plumb jdk`
 
 wird das JDK Image und alle abhängigen Images neu gebaut und die Services gegebenfalls neu gestartet.
 Hierbei werden alle alten Images und Container der jeweiligen Services gestoppt und gelöscht.
@@ -88,7 +87,7 @@ Wenn nun wieder die folgende URL in den Browser eingegeben wird:
 `http://10.34.45.102:8080`
 
 sollten die aktualisierten Versionen des JDK und von Elasticsearch sichtbar sein.
-Wie in dem Beispielkommando zu sehen ist, kann man bei RED auch den
+Wie in dem Beispielkommando zu sehen ist, kann man bei plumb auch den
 Service angeben, ab dem neu gebaut werden soll. Wenn kein Parameter mit angegeben wird,
 werden alle Services neu gebaut.
 

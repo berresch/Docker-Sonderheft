@@ -13,8 +13,8 @@ RUN ln -s $JDK_HOME $JAVA_HOME
 RUN curl -H "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" \
          -L $JDK_URL \
          -o /tmp/jdk.tar.gz && \
-    tar xzf /tmp/jdk.tar.gz -C $JDK_HOME --strip 1 && \
-    rm /tmp/jdk.tar.gz
+        tar xzf /tmp/jdk.tar.gz -C $JDK_HOME --strip 1 && \
+        rm /tmp/jdk.tar.gz
 
 RUN update-alternatives --install /usr/bin/java java $JAVA_HOME/bin/java 1
 RUN update-alternatives --install /usr/bin/javac javac $JAVA_HOME/bin/javac 1

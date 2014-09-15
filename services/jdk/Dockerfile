@@ -1,7 +1,7 @@
 FROM centerdevice/ubuntu-14.04
 
-#ENV JDK_URL http://download.oracle.com/otn-pub/java/jdk/7u67-b01/jdk-7u67-linux-x64.tar.gz
-ENV JDK_URL http://download.oracle.com/otn-pub/java/jdk/8u20-b26/jdk-8u20-linux-x64.tar.gz
+ENV JDK_URL http://download.oracle.com/otn-pub/java/jdk/7u67-b01/jdk-7u67-linux-x64.tar.gz
+#ENV JDK_URL http://download.oracle.com/otn-pub/java/jdk/8u20-b26/jdk-8u20-linux-x64.tar.gz
 
 ENV JVM_HOME /usr/lib/jvm
 ENV JDK_HOME $JVM_HOME/oracle-jdk-amd64

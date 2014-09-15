@@ -1,0 +1,25 @@
+ubuntu-14.04:
+  version: 20140901
+  build:
+    dockerfile: /vagrant/services/ubuntu-14.04
+
+jdk:
+  #version: 1.7.67
+  version: 1.8.20
+  build:
+    dockerfile: /vagrant/services/jdk
+
+elasticsearch:
+  #version: 1.3.1
+  version: 1.3.2
+  build:
+    dockerfile: /vagrant/services/elasticsearch
+  runtime:
+    ip: 10.34.45.101
+
+my-app:
+  version: 1.0.0
+  build:
+    dockerfile: /vagrant/services/my-app
+  runtime:
+    ip: 10.34.45.102

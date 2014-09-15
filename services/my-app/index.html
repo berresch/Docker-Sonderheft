@@ -1,0 +1,17 @@
+<html>
+   <head>
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+     <script>
+        $(document).ready(function(){
+          $.getJSON('http://10.34.45.101:9200/_nodes/jvm?pretty', function(data) {
+            $('#elasticsearch').html(JSON.stringify(data));
+          });
+        });
+    </script>
+   </head>
+   <body>
+     <div>Elasticsearch Info:</div>
+     <hr/>
+     <div id="elasticsearch"></div>
+   </body>
+</html>

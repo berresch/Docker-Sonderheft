@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Enable nat so containers can reach the world
+/sbin/iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+/sbin/iptables -A FORWARD -i eth0 -o eth1 -m state --state RELATED,ESTABLISHED -j ACCEPT
+/sbin/iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
+
+# Set eth1 of virtual box to promiscuous mode accepting frames for other mac addr.
+# This is necessary to route packet from the host to container NICs.
+ifconfig eth1 promisc
+
+# Reconfigure eth1 and docker0 so that docker0 acts as a bridge for
+# 10.34.0.0/16 connecting host vboxnetX and containers
+ip addr del 10.34.45.22/16 dev eth1
+ip link set eth1 master docker0
+service docker restart
+
+exit 0

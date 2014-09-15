@@ -32,7 +32,7 @@ Sobald die virtuelle Machine erstellt wurde kann man sich mit
 in der virtuellen Maschine anmelden und es kann mit dem Bauen von Docker Images
 begonnen werden. Hierfür benutzen wir das Tool RED. Dies ist die Abkürzung für
 Runtime Environment for Development. RED ist ein Python Program und von der
-Struktur her ähnlich aufgebaut wie [Fig][fig]. Es gibt eine services/config.yml
+Struktur her ähnlich aufgebaut wie [Fig][fig]. Es gibt eine /vagrant/services/config.yml
 Konfigurationsdatei in der alle Services/Images definiert werden. In unserem
 Fall ist eine Servicekonfiguration sehr einfach gehalten. Ein Service besteht aus
 einer Version, dem Pfad zur Dockerfile und optional einer IP Adresse, falls
@@ -74,7 +74,7 @@ http://10.34.45.102:8080
 erhält man eine kleine Info über den elasticsearch Container. Und zwar kann man
 u.a. die installierte [Elasticsearch][elasticsearch] Version und das installierte [JDK][jdk] sehen.
 Wenn wir nun z.B. das JDK und die Elasticsearch Version aktualisieren wollen muss wie folgt
-vorgegangen werden. In der services/config.yml Datei müssen die auskommentierten Versionen der jeweiligen Services
+vorgegangen werden. In der config.yml Datei müssen die auskommentierten Versionen der jeweiligen Services
 aktiviert und die aktuell gültigen auskommentiert werden. In den jeweiligen
 Dockerfiles der beiden Services muss die neue JDK_URL bzw. die ES_URL aktiviert
 und die alten URLs auskommentiert werden. Wenn nun der folgende Befehl
@@ -99,7 +99,7 @@ löschen. Es reicht ein Befehl der sich um das Bauen und aufräumen der Images b
 Container kümmert.
 
 Da es sich hier nur um ein rudimentäres Beispiel handeln soll wurde bspw.
-keine Rücksicht auf das Fehlerhandling genommen. Des Weiteren kann man
+keine Rücksicht auf die Fehlerbehandlung genommen. Des Weiteren kann man
 natürlich auch die Konfiguration der Services viel detaillierter und auf
 seine eigenen Wünsche anpassen. Wie ich schon weiter oben erwähnt hatte
 ähnelt dieser Ansatz sehr dem von fig. Jedoch hat uns bei fig die Flexibilität gefehlt

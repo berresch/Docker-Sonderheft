@@ -25,7 +25,11 @@ vom lokalen Entwicklungsrechner aus kommuniziert werden.
 
 ## Beispiel ausführen ##
 
-Sobald die virtuelle Machine erstellt wurde kann mit dem Bauen von Docker Images
+Sobald die virtuelle Machine erstellt wurde kann man sich mit
+
+> `vagrant ssh`
+
+in der virtuellen Maschine anmelden und es kann mit dem Bauen von Docker Images
 begonnen werden. Hierfür benutzen wir das Tool RED. Dies ist die Abkürzung für
 Runtime Environment for Development. RED ist ein Python Program und von der
 Struktur her ähnlich aufgebaut wie [Fig][fig]. Es gibt eine services/config.yml

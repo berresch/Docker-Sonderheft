@@ -1,5 +1,7 @@
 #!/bin/bash
 
+ln -s /vagrant/red /usr/local/bin/RED
+
 echo "Installing pip, pygraph, and docker-py"
 apt-get install -y python-pygraph python-pip
 pip install docker-py

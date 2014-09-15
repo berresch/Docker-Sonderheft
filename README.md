@@ -1,7 +1,7 @@
 Docker-Sonderheft
 =================
 
-Dies ist ein Beispielprojekt für Docker welches einen Ansatz vorstellt,
+Dies ist ein Beispielprojekt für [Docker][docker] welches einen Ansatz vorstellt,
 wie man auf einem lokalen Entwicklunsgrechner Docker Images und Container
 schnellstmöglich bauen und immer wieder aktualisieren kann ohne sich um
 Abhängigkeiten zwischen den Images zu kümmern.
@@ -9,8 +9,8 @@ Abhängigkeiten zwischen den Images zu kümmern.
 ## Vorbedingungen ##
 
 Um das Projekt lokal auszuprobieren muss zunächst dieses Repository
-auf den lokalen Rechner geklont und die beiden Tools VirtualBox und
-Vagrant installiert werden. Anschließend muss in das Verzeichnis gewechselt
+auf den lokalen Rechner geklont und die beiden Tools [VirtualBox][virtualbox] und
+[Vagrant][vagrant] installiert werden. Anschließend muss in das Verzeichnis gewechselt
 werden wo die Vagrantfile liegt und der folgende Befehl ausgeführt werden:
 
 > `vagrant up`
@@ -28,7 +28,7 @@ vom lokalen Entwicklungsrechner aus kommuniziert werden.
 Sobald die virtuelle Machine erstellt wurde kann mit dem Bauen von Docker Images
 begonnen werden. Hierfür benutzen wir das Tool RED. Dies ist die Abkürzung für
 Runtime Environment for Development. RED ist ein Python Program und von der
-Struktur her ähnlich aufgebaut wie fig. Es gibt eine services/config.yml
+Struktur her ähnlich aufgebaut wie [Fig][fig]. Es gibt eine services/config.yml
 Konfigurationsdatei in der alle Services/Images definiert werden. In unserem
 Fall ist eine Servicekonfiguration sehr einfach gehalten. Ein Service besteht aus
 einer Version, dem Pfad zur Dockerfile und optional einer IP Adresse, falls
@@ -68,25 +68,25 @@ Services mit dem Port 8080 ein:
 http://10.34.45.102:8080
 
 erhält man eine kleine Info über den elasticsearch Container. Und zwar kann man
-u.a. die installierte Elasticsearch Version und das installierte JDK sehen.
+u.a. die installierte [Elasticsearch][elasticsearch] Version und das installierte [JDK][jdk] sehen.
 Wenn wir nun z.B. das JDK und die Elasticsearch Version aktualisieren wollen muss wie folgt
 vorgegangen werden. In der services/config.yml Datei müssen die auskommentierten Versionen der jeweiligen Services
-aktiviert werden und die aktuell gültigen auskommentiert werden. In den jeweiligen
+aktiviert und die aktuell gültigen auskommentiert werden. In den jeweiligen
 Dockerfiles der beiden Services muss die neue JDK_URL bzw. die ES_URL aktiviert
-werden und die alten URLs auskommentiert werden. Wenn wir nun den folgenden Befehl
-ausführen
+und die alten URLs auskommentiert werden. Wenn nun der folgende Befehl
+ausgeführt wird
 
 > `RED jdk`
 
-wird der jdk Service und alle abhängigen Services neu gebaut und gestartet.
-Hierbei werden alte Images und Container der jeweiligen Services gestoppt und gelöscht.
+wird der jdk Service und alle abhängigen Services neu gebaut und ggf. gestartet.
+Hierbei werden alle alten Images und Container der jeweiligen Services gestoppt und gelöscht.
 Wenn nun wieder die folgende URL in den Browser eingegeben wird:
 
 http://10.34.45.102:8080
 
-sollten die aktualisierten Versionen des JDK und von Elasticsearch sichtbar ein.
-Wie in dem Beispielkommando zu sehen ist kann man RED auch den
-Service angeben der neu gebaut werden soll. Wenn kein Parameter mit angegeben wird,
+sollten die aktualisierten Versionen des JDK und von Elasticsearch sichtbar sein.
+Wie in dem Beispielkommando zu sehen ist kann man bei RED auch den
+Service angeben ab dem neu gebaut werden soll. Wenn kein Parameter mit angegeben wird,
 werden alle Services neu gebaut.
 
 Der Vorteil dieses Ansatzes liegt darin, dass man sich nicht mehr darum
@@ -101,3 +101,10 @@ seine eigenen Wünsche anpassen. Wie ich schon weiter oben erwähnt hatte
 ähnelt dieser Ansatz sehr dem von fig. Jedoch hat uns bei fig die Flexibilität gefehlt
 wie z.B. das Auflösen von Service-Abhängigkeiten oder das Zuweisen von
 IP Adressen.
+
+[docker]: https://www.docker.com
+[vagrant]: http://www.vagrantup.com
+[virtualbox]: https://www.virtualbox.org
+[fig]: http://www.fig.sh
+[elasticsearch]: http://www.elasticsearch.org
+[jdk]: http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html
